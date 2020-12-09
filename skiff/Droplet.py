@@ -111,11 +111,11 @@ class SkiffDroplet(object):
     def password_reset(self):
         return self.do_action('password_reset')
 
-    def resize(self, slug):
+    def resize(self, slug, resize_disk=False):
         # if is of class SkiffSize, grab its property
         if isinstance(slug, SkiffSize):
             slug = slug.slug
-        return self.do_action('resize', {'size': slug})
+        return self.do_action('resize', {'size': slug, 'disk': resize_disk})
 
     def restore(self, backup):
         # if is of class SkiffImage, grab its property
